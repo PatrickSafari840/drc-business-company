@@ -453,6 +453,41 @@
         .footer-contact a { color: #94a3b8; text-decoration: none; transition: color 0.3s ease; }
         .footer-contact a:hover { color: #00c2ff; }
         #contact-sub-bar .wa-mini { background: #25D366; }
+    
+    /* CEO feature: photo fades into the background toward the caption, like the service photos */
+    .ceo-feature { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; margin-bottom: 5rem; }
+    .ceo-photo {
+        position: relative; height: 560px; border-radius: 28px; overflow: hidden;
+        border: 1px solid rgba(0, 194, 255, 0.35);
+        -webkit-mask-image: linear-gradient(to right, #000 45%, rgba(0,0,0,0.55) 70%, transparent 100%);
+                mask-image: linear-gradient(to right, #000 45%, rgba(0,0,0,0.55) 70%, transparent 100%);
+    }
+    .ceo-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 18%; display: block;
+        transform: scale(1.03); transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
+    .ceo-feature:hover .ceo-photo img { transform: scale(1.08); }
+    .ceo-photo::before { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+        background: linear-gradient(135deg, rgba(0, 194, 255, 0.16), transparent 45%), linear-gradient(to top, rgba(5, 8, 15, 0.45), transparent 45%); }
+    .ceo-text { position: relative; z-index: 2; margin-left: -9rem; }
+    .ceo-name { font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 4rem; line-height: 1.15; margin: 0.2rem 0 1.2rem; color: var(--text-primary); }
+    .ceo-text p { font-size: 1.08rem; margin-bottom: 1rem; text-shadow: 0 2px 12px var(--bg-section-secondary), 0 0 30px var(--bg-section-secondary); }
+    .ceo-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .ceo-actions .btn-ghost { color: var(--text-primary); }
+    body.light-theme .ceo-photo { border-color: rgba(2, 132, 199, 0.35); }
+    .team-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 820px; margin: 0 auto; }
+    @media (max-width: 1024px) {
+        .ceo-feature { grid-template-columns: 1fr; }
+        .ceo-photo { height: 460px;
+            -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+                    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
+        .ceo-text { margin: -2.5rem 0 0; text-align: center; }
+        .ceo-photo img { object-position: 45% 15%; }
+        .ceo-actions { justify-content: center; }
+    }
+    @media (max-width: 576px) {
+        .ceo-photo { height: 380px; border-radius: 20px; }
+        .ceo-name { font-size: 3rem; }
+        .team-grid-2 { grid-template-columns: 1fr; }
+    }
     </style>
 </head>
 <body>
@@ -615,8 +650,22 @@
             <h2>Notre Équipe de Direction</h2>
             <p>Des experts passionnés dédiés à votre succès.</p>
         </div>
-        <div class="team-grid">
-            <div class="team-member reveal spot"><div class="avatar">DG</div><h4>Nom du CEO</h4><span>Directeur Général</span></div>
+        <article class="ceo-feature">
+            <div class="ceo-photo reveal">
+                <img src="images/ceo.jpg" alt="Directeur Général de DRC BUSINESS COMPANY" loading="lazy">
+            </div>
+            <div class="ceo-text reveal">
+                <span class="eyebrow">Directeur Général (CEO)</span>
+                <h3 class="ceo-name">Nom du CEO</h3>
+                <p>À la tête de DRC BUSINESS COMPANY, notre Directeur Général pilote la stratégie de l'entreprise et veille personnellement à la qualité de chaque mission, de la logistique minière aux chantiers de construction.</p>
+                <p>Homme de terrain, il accompagne nos partenaires dans l'Est et le Nord-Est de la RDC avec une exigence constante : fiabilité, intégrité et excellence opérationnelle.</p>
+                <div class="ceo-actions">
+                    <a href="https://wa.me/243992977482?text=Bonjour%2C%20je%20souhaite%20contacter%20le%20Directeur%20G%C3%A9n%C3%A9ral%20de%20DRC%20BUSINESS%20COMPANY." target="_blank" rel="noopener" class="btn">💬 Le contacter sur WhatsApp</a>
+                    <a href="mailto:bzihalirwa@gmail.com" class="btn btn-ghost">📧 Écrire un email</a>
+                </div>
+            </div>
+        </article>
+        <div class="team-grid team-grid-2">
             <div class="team-member reveal spot"><div class="avatar">DO</div><h4>Nom du COO</h4><span>Directeur des Opérations</span></div>
             <div class="team-member reveal spot"><div class="avatar">DF</div><h4>Nom du CFO</h4><span>Directeur Financier</span></div>
         </div>
