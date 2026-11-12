@@ -746,13 +746,17 @@
         /* Calligraphic welcome headings */
         .script { font-family: 'Great Vibes', cursive; font-weight: 400; text-transform: none; letter-spacing: 0; }
         .hero-content h1 { text-transform: none; }
-        .hero-content h1 .script { display: block; font-size: 6.2rem; line-height: 1.05; margin-bottom: 0.4rem;
+        .hero-content h1 .script { display: block; font-size: 5.4rem; line-height: 1.12; margin-bottom: 0.35rem;
             background: linear-gradient(90deg, #ffffff 20%, #9be7ff 60%, #00c2ff); -webkit-background-clip: text; background-clip: text; color: transparent;
-            filter: drop-shadow(0 4px 18px rgba(0,0,0,0.6)); padding: 0 0.15em; }
+            filter: drop-shadow(0 4px 18px rgba(0,0,0,0.6)); padding: 0.12em 0.3em 0.08em; }
         body.light-theme .hero-content h1 .script { background: linear-gradient(90deg, #0f172a 20%, #0369a1 70%, #0284c7); -webkit-background-clip: text; background-clip: text; filter: none; }
-        .hero-content h1 .highlight { font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-weight: 800; font-size: 3.2rem; letter-spacing: 6px; }
-        @media (max-width: 1024px) { .hero-content h1 .script { font-size: 4.6rem; } .hero-content h1 .highlight { font-size: 2.4rem; } }
-        @media (max-width: 576px) { .hero-content h1 .script { font-size: 3.3rem; } .hero-content h1 .highlight { font-size: 1.8rem; letter-spacing: 4px; } }
+        .hero-content h1 .highlight { font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-weight: 800; font-size: 2.6rem; letter-spacing: 8px;
+            display: inline-flex; align-items: center; gap: 1.2rem; }
+        .hero-content h1 .highlight::before, .hero-content h1 .highlight::after { content: ''; width: 70px; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-blue)); }
+        .hero-content h1 .highlight::after { background: linear-gradient(90deg, var(--accent-blue), transparent); }
+        @media (max-width: 1024px) { .hero-content h1 .script { font-size: 4.2rem; } .hero-content h1 .highlight { font-size: 2.1rem; letter-spacing: 6px; } }
+        @media (max-width: 576px) { .hero-content h1 .script { font-size: 3rem; padding: 0.12em 0.2em 0.08em; } .hero-content h1 .highlight { font-size: 1.6rem; letter-spacing: 4px; gap: 0.8rem; }
+            .hero-content h1 .highlight::before, .hero-content h1 .highlight::after { width: 32px; } }
 
         /* WhatsApp */
         .wa-float {
